@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE-LOVE | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo lockup" href="index.html" aria-label="RE-LOVE Home">
+      <span class="logo-main">RE-LOVE</span>
+      <span class="logo-sub">fashion regeneration platform</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a class="active" href="index.html">Home</a>
+      <a href="chi-siamo.html">Chi siamo</a>
+      <a href="dove-ci-troviamo.html">Dove ci troviamo</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+
+    <a class="btn solid" href="area-riservata.html">Area riservata</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero-shell" id="heroShell">
+      <div class="hero-track" id="heroTrack">
+        <article class="hero-slide" style="--hero-bg: url('assets/extracted/p01_img004.png');">
+          <div class="hero-copy">
+            <p class="hero-kicker">Second life collection</p>
+            <h1>Moda rigenerata con metodo industriale e cura artigianale</h1>
+            <p>Re-Love integra selezione, sanificazione, restyling e rivendita in un unico flusso controllato.</p>
+            <div class="hero-actions">
+              <a class="btn solid" href="chi-siamo.html">Profilo istituzionale</a>
+              <a class="btn ghost-light" href="area-riservata.html">Area partner</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="--hero-bg: url('assets/extracted/p24_img002.png');">
+          <div class="hero-copy">
+            <p class="hero-kicker">Canale fisico</p>
+            <h2>Corner urbani per raccolta e attivazione della comunita</h2>
+            <p>Ogni corner unisce retail, logistica sostenibile e tracciamento dei capi in tempo reale.</p>
+            <div class="hero-actions">
+              <a class="btn solid" href="dove-ci-troviamo.html">Vedi le sedi</a>
+              <a class="btn ghost-light" href="contatti.html">Richiedi informazioni</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="--hero-bg: url('assets/extracted/p19_img007.png');">
+          <div class="hero-copy">
+            <p class="hero-kicker">Trasparenza operativa</p>
+            <h2>Dalla donazione alla vendita: processo leggibile e verificabile</h2>
+            <p>La piattaforma comunica avanzamento, stato attivita e valorizzazione economica di ogni capo.</p>
+            <div class="hero-actions">
+              <a class="btn solid" href="area-riservata.html">Accedi alla dashboard</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button id="heroPrevBtn" class="hero-nav left" type="button" aria-label="Slide precedente">&#10094;</button>
+      <button id="heroNextBtn" class="hero-nav right" type="button" aria-label="Slide successiva">&#10095;</button>
+
+      <div class="hero-controls">
+        <div id="heroDots" class="hero-dots"></div>
+        <p id="heroCounter" class="hero-counter">1 / 3</p>
+      </div>
+    </section>
+
+    <section class="section institutional">
+      <div class="section-head">
+        <p class="eyebrow">Impostazione istituzionale</p>
+        <h2>RE-LOVE opera come piattaforma di economia circolare per il fashion second hand</h2>
+      </div>
+      <div class="institutional-grid">
+        <article class="institution-card">
+          <h3>Mission</h3>
+          <p>Ridurre il sovraconsumo tessile offrendo capi rigenerati con estetica contemporanea e standard qualitativi costanti.</p>
+        </article>
+        <article class="institution-card">
+          <h3>Posizionamento</h3>
+          <p>Alternativa al fast fashion: accessibilita di prezzo, selezione editoriale e processo di rigenerazione documentato.</p>
+        </article>
+        <article class="institution-card">
+          <h3>Modello operativo</h3>
+          <p>RaaS gestito: raccolta capi, trattamento, re-immissione sul mercato e riconoscimento valore tramite card dedicata.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">Catalogo demo</p>
+          <h2>Capispalla rigenerati</h2>
+        </div>
+        <div class="carousel-actions">
+          <button class="mini-btn" data-prev="outerwearCarousel" type="button">Prev</button>
+          <button class="mini-btn" data-next="outerwearCarousel" type="button">Next</button>
+        </div>
+      </div>
+
+      <div id="outerwearCarousel" class="products-carousel" data-product-carousel>
+        <div class="product-track">
+          <article class="product-card">
+            <img src="assets/extracted/p23_img002.png" alt="Blazer rigenerato">
+            <div>
+              <p class="sku">RL-OUT-101</p>
+              <h3>Blazer Sartoriale Rosa Stitch</h3>
+              <p>Stato: disponibile in corner Milano Duomo</p>
+              <strong>EUR 89</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p16_img004.png" alt="Giacca utility rigenerata">
+            <div>
+              <p class="sku">RL-OUT-102</p>
+              <h3>Giacca Utility Archive</h3>
+              <p>Restyling con bottoni clip modulari</p>
+              <strong>EUR 78</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p17_img003.png" alt="Cappotto oversize rigenerato">
+            <div>
+              <p class="sku">RL-OUT-103</p>
+              <h3>Cappotto Oversize Nordic Fit</h3>
+              <p>Ciclo completo sanificazione certificata</p>
+              <strong>EUR 96</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p09_img002.png" alt="Bomber rigenerato">
+            <div>
+              <p class="sku">RL-OUT-104</p>
+              <h3>Bomber Layer Hybrid</h3>
+              <p>Pezzo unico con etichetta patch recuperata</p>
+              <strong>EUR 83</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p19_img024.png" alt="Trench rigenerato">
+            <div>
+              <p class="sku">RL-OUT-105</p>
+              <h3>Trench Urban Balance</h3>
+              <p>Linea istituzionale della collezione 2026</p>
+              <strong>EUR 91</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">Catalogo demo</p>
+          <h2>Denim e maglieria</h2>
+        </div>
+        <div class="carousel-actions">
+          <button class="mini-btn" data-prev="denimCarousel" type="button">Prev</button>
+          <button class="mini-btn" data-next="denimCarousel" type="button">Next</button>
+        </div>
+      </div>
+
+      <div id="denimCarousel" class="products-carousel" data-product-carousel>
+        <div class="product-track">
+          <article class="product-card">
+            <img src="assets/extracted/p09_img003.png" alt="Jeans vintage rigenerato">
+            <div>
+              <p class="sku">RL-DNM-201</p>
+              <h3>Jeans High Waist Renew</h3>
+              <p>Fit aggiornato su base vintage originale</p>
+              <strong>EUR 45</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p16_img001.png" alt="Maglia in lana rigenerata">
+            <div>
+              <p class="sku">RL-DNM-202</p>
+              <h3>Maglia Lana Deep Blue</h3>
+              <p>Recupero filato e ricondizionamento completo</p>
+              <strong>EUR 42</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p17_img004.png" alt="Cardigan rigenerato">
+            <div>
+              <p class="sku">RL-DNM-203</p>
+              <h3>Cardigan Layer Neutral</h3>
+              <p>Palette neutra, styling urban essenziale</p>
+              <strong>EUR 48</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p02_img003.png" alt="Denim jacket rigenerata">
+            <div>
+              <p class="sku">RL-DNM-204</p>
+              <h3>Denim Jacket Reworked</h3>
+              <p>Impunture a vista in tono identitario Re-Love</p>
+              <strong>EUR 54</strong>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/extracted/p07_img003.png" alt="Pantalone rigenerato">
+            <div>
+              <p class="sku">RL-DNM-205</p>
+              <h3>Pantalone Contemporary Fit</h3>
+              <p>Proposta capsule per uso quotidiano</p>
+              <strong>EUR 44</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section editorial">
+      <div class="section-head">
+        <p class="eyebrow">Contenuti dalla presentazione</p>
+        <h2>Linee strategiche 2026</h2>
+      </div>
+      <div class="editorial-grid">
+        <article class="editorial-card">
+          <img src="assets/extracted/p01_img006.png" alt="Mission Re-Love">
+          <div>
+            <h3>Missione</h3>
+            <p>Un atto alternativo al fast fashion: estetica di tendenza e tutela del pianeta devono coesistere.</p>
+          </div>
+        </article>
+        <article class="editorial-card">
+          <img src="assets/extracted/p01_img003.png" alt="Analisi SWOT">
+          <div>
+            <h3>Governance e rischi</h3>
+            <p>Focus su qualita, tempistiche e controllo dei costi di lavorazione per mantenere competitivita.</p>
+          </div>
+        </article>
+        <article class="editorial-card">
+          <img src="assets/extracted/p24_img002.png" alt="Strategia di comunicazione">
+          <div>
+            <h3>Comunicazione</h3>
+            <p>Digital first, storytelling del capo e monitoraggio del percorso post-donazione nell'applicazione.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <section>
+        <h3>RE-LOVE</h3>
+        <p>Piattaforma italiana per la rigenerazione fashion con approccio industriale e impatto circolare.</p>
+      </section>
+      <section>
+        <h3>Navigazione</h3>
+        <p><a href="chi-siamo.html">Chi siamo</a></p>
+        <p><a href="dove-ci-troviamo.html">Dove ci troviamo</a></p>
+        <p><a href="contatti.html">Contatti</a></p>
+      </section>
+      <section>
+        <h3>Network</h3>
+        <p>Corner dedicati nei negozi partner</p>
+        <p>Pop-up e attivazioni sul territorio</p>
+      </section>
+      <section>
+        <h3>Area partner</h3>
+        <p><a href="area-riservata.html">Accesso riservato donatori</a></p>
+        <p>Demo senza backend e senza database.</p>
+      </section>
+    </div>
+    <p class="copyright">2026 Re-Love - Demo istituzionale basata sul materiale fornito.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

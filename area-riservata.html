@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE-LOVE | Area riservata</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo lockup" href="index.html" aria-label="RE-LOVE Home">
+      <span class="logo-main">RE-LOVE</span>
+      <span class="logo-sub">fashion regeneration platform</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="chi-siamo.html">Chi siamo</a>
+      <a href="dove-ci-troviamo.html">Dove ci troviamo</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+
+    <a class="btn solid active-link" href="area-riservata.html">Area riservata</a>
+  </header>
+
+  <main class="page-shell">
+    <section id="authLogin" class="auth-page active">
+      <div class="auth-layout">
+        <article class="auth-visual">
+          <p class="eyebrow">Area partner demo</p>
+          <h1>Accesso riservato donatori</h1>
+          <p>Login simulato: nessun controllo credenziali e nessun database. Accesso immediato alla dashboard capi.</p>
+          <a class="btn ghost-light" href="index.html">Torna al sito istituzionale</a>
+        </article>
+
+        <article class="auth-panel">
+          <h2>Login</h2>
+          <p>Inserisci email e password per accedere alla tua area privata demo.</p>
+          <form id="loginForm" class="auth-form" novalidate>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="nome@esempio.it">
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="********">
+
+            <button class="btn solid wide" type="submit">Entra</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section id="authPrivate" class="auth-page">
+      <div class="private-top">
+        <div>
+          <p class="eyebrow">Dashboard privata</p>
+          <h2 id="welcomeTitle">Ciao Cliente</h2>
+          <p class="muted">Account: <strong id="privateEmail">cliente@relove.it</strong></p>
+        </div>
+        <button id="logoutBtn" class="btn ghost" type="button">Logout</button>
+      </div>
+
+      <div class="private-grid">
+        <article class="panel">
+          <h3>Carta fedelta</h3>
+          <div class="loyalty-card">
+            <span class="chip"></span>
+            <p class="card-tag">RE-LOVE CARD</p>
+            <p id="cardHolder" class="card-owner">Cliente Demo</p>
+            <p class="card-number">RL 2026 9910 4431</p>
+            <div class="card-points">
+              <span>Punti disponibili</span>
+              <strong id="pointsValue">1.280</strong>
+            </div>
+          </div>
+          <p class="panel-note">Ricarica automatica quando il tuo capo viene venduto.</p>
+        </article>
+
+        <article class="panel">
+          <h3>Vestiti donati e stato attivita</h3>
+          <ul id="privateDonations" class="status-list"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <section>
+        <h3>RE-LOVE</h3>
+        <p>Piattaforma italiana per la rigenerazione fashion con approccio industriale e impatto circolare.</p>
+      </section>
+      <section>
+        <h3>Navigazione</h3>
+        <p><a href="chi-siamo.html">Chi siamo</a></p>
+        <p><a href="dove-ci-troviamo.html">Dove ci troviamo</a></p>
+        <p><a href="contatti.html">Contatti</a></p>
+      </section>
+      <section>
+        <h3>Network</h3>
+        <p>Corner dedicati nei negozi partner</p>
+        <p>Pop-up e attivazioni sul territorio</p>
+      </section>
+      <section>
+        <h3>Area partner</h3>
+        <p><a href="area-riservata.html">Accesso riservato donatori</a></p>
+        <p>Demo senza backend e senza database.</p>
+      </section>
+    </div>
+    <p class="copyright">2026 Re-Love - Demo istituzionale basata sul materiale fornito.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
