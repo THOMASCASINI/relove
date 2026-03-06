@@ -79,8 +79,38 @@
         </article>
 
         <article class="panel">
-          <h3>Vestiti donati e stato attivita</h3>
-          <ul id="privateDonations" class="status-list"></ul>
+          <h3>I tuoi capi: in lavorazione, pronti e venduti</h3>
+          <p class="panel-note">Clicca su un capo per vedere lo storico completo delle lavorazioni.</p>
+          <div class="status-groups">
+            <section class="status-group">
+              <h4>Ordini in lavorazione</h4>
+              <ul id="privateDonationsWorking" class="status-list"></ul>
+            </section>
+            <section class="status-group">
+              <h4>Ordini pronti</h4>
+              <ul id="privateDonationsReady" class="status-list"></ul>
+            </section>
+            <section class="status-group">
+              <h4>Ordini venduti</h4>
+              <ul id="privateDonationsSold" class="status-list"></ul>
+            </section>
+          </div>
+        </article>
+      </div>
+
+      <div id="itemHistoryModal" class="history-modal" aria-hidden="true">
+        <div class="history-backdrop" data-close-history></div>
+        <article class="history-dialog" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+          <button id="closeHistoryBtn" class="history-close" type="button" aria-label="Chiudi storico">&times;</button>
+          <p class="eyebrow">Storico capo</p>
+          <h3 id="historyTitle">Titolo capo</h3>
+          <p id="historyMeta" class="status-meta"></p>
+          <div class="history-summary">
+            <p><strong>Valutazione:</strong> <span id="historyRating">-</span></p>
+            <p><strong>Lavaggio:</strong> <span id="historyWash">-</span></p>
+            <p><strong>Modifiche:</strong> <span id="historyMods">-</span></p>
+          </div>
+          <ol id="historyTimeline" class="history-timeline"></ol>
         </article>
       </div>
     </section>
