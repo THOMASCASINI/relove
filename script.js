@@ -259,13 +259,12 @@ function buildHistoryEvents(item) {
   return events;
 }
 
-function buildStatusItem(item, onClick) {
+function buildStatusItem(item, onHistoryClick, onQrClick) {
   const li = document.createElement("li");
   li.className = "status-item";
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "status-item-button";
+  const body = document.createElement("div");
+  body.className = "status-item-body";
 
   const top = document.createElement("div");
   top.className = "status-top";
@@ -286,24 +285,34 @@ function buildStatusItem(item, onClick) {
   phase.className = "status-phase";
   phase.textContent = item.phase;
 
-  button.addEventListener("click", () => onClick(item));
+  const actions = document.createElement("div");
+  actions.className = "status-actions";
 
-  const cta = document.createElement("p");
-  cta.className = "status-action";
-  cta.textContent = "Apri storico del capo";
+  const historyLink = document.createElement("button");
+  historyLink.type = "button";
+  historyLink.className = "status-link";
+  historyLink.textContent = "Apri storico del capo";
+  historyLink.addEventListener("click", () => onHistoryClick(item));
+
+  const qrLink = document.createElement("button");
+  qrLink.type = "button";
+  qrLink.className = "status-link qr-link";
+  qrLink.textContent = "mostra qrcode del prodotto";
+  qrLink.addEventListener("click", () => onQrClick(item));
 
   top.append(name, status);
-  button.append(top, meta, phase);
+  body.append(top, meta, phase);
 
   if (item.status === "Venduto" && item.points) {
     const points = document.createElement("p");
     points.className = "status-points";
     points.textContent = `Punti accumulati: +${new Intl.NumberFormat("it-IT").format(item.points)}`;
-    button.append(points);
+    body.append(points);
   }
 
-  button.append(cta);
-  li.append(button);
+  actions.append(historyLink, qrLink);
+  body.append(actions);
+  li.append(body);
   return li;
 }
 
@@ -338,15 +347,28 @@ function openHistoryModal(modalElements, item) {
     timeline.appendChild(row);
   });
 
+  openModal(modal);
+}
+
+function openQrModal(modal, title, item) {
+  title.textContent = `Mostra qrcode del prodotto - ${item.code}`;
+  openModal(modal);
+}
+
+function openModal(modal) {
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 }
 
-function closeHistoryModal(modal) {
+function closeModal(modal) {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
+
+  const stillOpenModal = document.querySelector(".history-modal.open");
+  if (!stillOpenModal) {
+    document.body.classList.remove("modal-open");
+  }
 }
 
 function initAreaRiservata() {
@@ -369,7 +391,11 @@ function initAreaRiservata() {
   const historyWash = document.getElementById("historyWash");
   const historyMods = document.getElementById("historyMods");
   const historyTimeline = document.getElementById("historyTimeline");
-  const backdrop = itemHistoryModal?.querySelector("[data-close-history]");
+  const historyBackdrop = itemHistoryModal?.querySelector("[data-close-history]");
+  const qrCodeModal = document.getElementById("qrCodeModal");
+  const closeQrBtn = document.getElementById("closeQrBtn");
+  const qrTitle = document.getElementById("qrTitle");
+  const qrBackdrop = qrCodeModal?.querySelector("[data-close-qr]");
 
   if (
     !authLogin ||
@@ -391,7 +417,11 @@ function initAreaRiservata() {
     !historyWash ||
     !historyMods ||
     !historyTimeline ||
-    !backdrop
+    !historyBackdrop ||
+    !qrCodeModal ||
+    !closeQrBtn ||
+    !qrTitle ||
+    !qrBackdrop
   ) {
     return;
   }
@@ -415,7 +445,19 @@ function initAreaRiservata() {
   donatedItems.forEach((item) => {
     const targetList = statusBuckets[item.status];
     if (targetList) {
-      targetList.appendChild(buildStatusItem(item, (selectedItem) => openHistoryModal(modalElements, selectedItem)));
+      targetList.appendChild(
+        buildStatusItem(
+          item,
+          (selectedItem) => {
+            closeModal(qrCodeModal);
+            openHistoryModal(modalElements, selectedItem);
+          },
+          (selectedItem) => {
+            closeModal(itemHistoryModal);
+            openQrModal(qrCodeModal, qrTitle, selectedItem);
+          }
+        )
+      );
     }
   });
 
@@ -430,16 +472,32 @@ function initAreaRiservata() {
   }
 
   closeHistoryBtn.addEventListener("click", () => {
-    closeHistoryModal(itemHistoryModal);
+    closeModal(itemHistoryModal);
   });
 
-  backdrop.addEventListener("click", () => {
-    closeHistoryModal(itemHistoryModal);
+  historyBackdrop.addEventListener("click", () => {
+    closeModal(itemHistoryModal);
+  });
+
+  closeQrBtn.addEventListener("click", () => {
+    closeModal(qrCodeModal);
+  });
+
+  qrBackdrop.addEventListener("click", () => {
+    closeModal(qrCodeModal);
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && itemHistoryModal.classList.contains("open")) {
-      closeHistoryModal(itemHistoryModal);
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    if (itemHistoryModal.classList.contains("open")) {
+      closeModal(itemHistoryModal);
+    }
+
+    if (qrCodeModal.classList.contains("open")) {
+      closeModal(qrCodeModal);
     }
   });
 
@@ -468,7 +526,8 @@ function initAreaRiservata() {
   });
 
   logoutBtn.addEventListener("click", () => {
-    closeHistoryModal(itemHistoryModal);
+    closeModal(itemHistoryModal);
+    closeModal(qrCodeModal);
     showAuthPage(authLogin);
   });
 }

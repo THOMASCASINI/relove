@@ -113,6 +113,19 @@
           <ol id="historyTimeline" class="history-timeline"></ol>
         </article>
       </div>
+
+      <div id="qrCodeModal" class="history-modal qr-modal" aria-hidden="true">
+        <div class="history-backdrop" data-close-qr></div>
+        <article class="history-dialog qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+          <button id="closeQrBtn" class="history-close" type="button" aria-label="Chiudi qrcode">&times;</button>
+          <p class="eyebrow">QR Code prodotto</p>
+          <h3 id="qrTitle">Mostra qrcode del prodotto</h3>
+          <div class="qr-frame">
+            <img src="assets/extracted/p12_img003.png" alt="QR code del prodotto">
+          </div>
+          <p class="qr-caption">SCAN ME</p>
+        </article>
+      </div>
     </section>
   </main>
 
