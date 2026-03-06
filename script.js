@@ -297,7 +297,7 @@ function buildStatusItem(item, onHistoryClick, onQrClick) {
   const qrLink = document.createElement("button");
   qrLink.type = "button";
   qrLink.className = "status-link qr-link";
-  qrLink.textContent = "mostra qrcode del prodotto";
+  qrLink.textContent = "Mostra QRCode";
   qrLink.addEventListener("click", () => onQrClick(item));
 
   top.append(name, status);
@@ -351,7 +351,7 @@ function openHistoryModal(modalElements, item) {
 }
 
 function openQrModal(modal, title, item) {
-  title.textContent = `Mostra qrcode del prodotto - ${item.code}`;
+  title.textContent = "Mostra QRCode";
   openModal(modal);
 }
 
