@@ -201,6 +201,59 @@ function initProductCarousels() {
   });
 }
 
+function initProductImageModal() {
+  const modal = document.getElementById("productImageModal");
+  const modalTitle = document.getElementById("productImageModalTitle");
+  const modalImage = document.getElementById("productImageModalImage");
+  const closeBtn = document.getElementById("closeProductImageBtn");
+  const backdrop = modal?.querySelector("[data-close-modal]");
+  const productImages = [...document.querySelectorAll(".product-card img")];
+
+  if (!modal || !modalTitle || !modalImage || !closeBtn || !backdrop || productImages.length === 0) {
+    return;
+  }
+
+  function showProductImage(image) {
+    const card = image.closest(".product-card");
+    const title = card?.querySelector("h3")?.textContent || image.alt || "Immagine prodotto";
+
+    modalTitle.textContent = title;
+    modalImage.src = image.src;
+    modalImage.alt = image.alt || title;
+
+    openModal(modal);
+  }
+
+  productImages.forEach((image) => {
+    image.setAttribute("role", "button");
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("aria-label", `Apri immagine di ${image.alt || "questo prodotto"}`);
+
+    image.addEventListener("click", () => {
+      showProductImage(image);
+    });
+
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showProductImage(image);
+      }
+    });
+  });
+
+  [closeBtn, backdrop].forEach((element) => {
+    element.addEventListener("click", () => {
+      closeModal(modal);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("open")) {
+      closeModal(modal);
+    }
+  });
+}
+
 function normalizeNameFromEmail(email) {
   const alias = email.split("@")[0].replace(/[._-]+/g, " ").trim();
   if (!alias) {
@@ -534,4 +587,5 @@ function initAreaRiservata() {
 
 initHeroSlider();
 initProductCarousels();
+initProductImageModal();
 initAreaRiservata();

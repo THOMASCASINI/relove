@@ -424,6 +424,7 @@ a {
   height: 190px;
   object-fit: cover;
   display: block;
+  cursor: zoom-in;
 }
 
 .product-card div {
@@ -964,6 +965,28 @@ a {
 .qr-frame img {
   width: 100%;
   max-width: 512px;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-image-dialog {
+  width: min(920px, calc(100% - 1rem));
+}
+
+.product-image-title {
+  margin: 0 2.5rem 0.85rem 0;
+}
+
+.product-image-frame {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f6f1e8;
+}
+
+.product-image-frame img {
+  width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
